@@ -9,6 +9,7 @@ VALUES ('$new_username', '$new_password' )";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
+  header("Location: login_page.php");
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }

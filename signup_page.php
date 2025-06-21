@@ -14,7 +14,7 @@
     <form action="signup.php" method="post">
         Username: <input type="text" name="user" required><br><br>
         Password: <input type="password" name="pass" required><br><br>
-        <input type="submit" value="Login">
+        <input type="submit" value="Sign Up">
     </form>
 </body>
 </html>

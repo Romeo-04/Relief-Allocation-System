@@ -6,20 +6,23 @@ $username = $_POST['username'];
 $password = $_POST['password'];
 
 
-$sql = "SELECT * FROM username WHERE username='$username' AND password='$password'";
+// Retrieve the stored hash for the given username
+$sql = "SELECT password FROM username WHERE username='$username'";
 $result = $conn->query($sql);
 
 
 if ($result->num_rows > 0) {
-    session_start();
-    header("Location: landing_page.php");
-    exit();
+    $row = $result->fetch_assoc();
 
-} else {
-  
-    header("Location: index.php?error=Invalid username or password");
-    exit();
+    if (password_verify($password, $row['password'])) {
+        session_start();
+        header("Location: landing_page.php");
+        exit();
+    }
 }
+
+header("Location: index.php?error=Invalid username or password");
+exit();
 
 $conn->close();
 ?>

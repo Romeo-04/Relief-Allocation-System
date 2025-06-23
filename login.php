@@ -5,10 +5,10 @@ include 'connection_login.php';
 $username = $_POST['username'];
 $password = $_POST['password'];
 
-
-$sql = "SELECT * FROM username WHERE username='$username' AND password='$password'";
-$result = $conn->query($sql);
-
+$stmt = $conn->prepare("SELECT * FROM username WHERE username = ? AND password = ?");
+$stmt->bind_param("ss", $username, $password);
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows > 0) {
     session_start();
@@ -16,10 +16,11 @@ if ($result->num_rows > 0) {
     exit();
 
 } else {
-  
+
     header("Location: index.php?error=Invalid username or password");
     exit();
 }
 
+$stmt->close();
 $conn->close();
 ?>

@@ -4,18 +4,15 @@ include 'connection_signup.php';
 $new_username = $_POST['user'];
 $new_password = $_POST['pass'];
 
-$sql = "INSERT INTO username (username,password)
-VALUES ('$new_username', '$new_password' )";
-
-if ($conn->query($sql) === TRUE) {
+$stmt = $conn->prepare("INSERT INTO username (username, password) VALUES (?, ?)");
+$stmt->bind_param("ss", $new_username, $new_password);
+if ($stmt->execute()) {
   echo "New record created successfully";
   header("Location: login_page.php");
 } else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
+  echo "Error: " . $stmt->error;
 }
 
-
+$stmt->close();
 $conn->close();
 ?>
-
-

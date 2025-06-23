@@ -2,33 +2,17 @@
 <html>
 <head>
     <title>Relief Allocation - Landing</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #4CAF50;
-            color: #fff;
-            padding: 20px;
-            text-align: center;
-        }
-        .main-content {
-            padding: 40px;
-            text-align: center;
-        }
-        .cta-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <header class="bg-green-600 text-white p-6 text-center">
+        <h1 class="text-2xl font-bold">Relief Allocation System</h1>
+    </header>
+    <main class="flex-grow flex flex-col items-center justify-center p-6 text-center space-y-4">
+        <h2 class="text-xl">Welcome!</h2>
+        <p>This is the landing page for the Relief Allocation System.</p>
+        <a href="index.php" class="px-4 py-2 bg-green-600 text-white rounded">Log Out</a>
+    </main>
 </head>
 <body>
     <header>

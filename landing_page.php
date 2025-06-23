@@ -13,7 +13,6 @@
         <p>This is the landing page for the Relief Allocation System.</p>
         <a href="index.php" class="px-4 py-2 bg-green-600 text-white rounded">Log Out</a>
     </main>
-</head>
 <body>
     <header>
         <h1>Relief Allocation System</h1>
